@@ -1,5 +1,8 @@
-@section('content')
+<!DOCTYPE html>
+<html>
+
 <link href="{{ asset('/css/registro.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
@@ -7,9 +10,21 @@
 @endif
 <div class="container-registro mt-5">
 
-    <form action="" method="post" action="action('ClienteController@registrarCliente') ">
+    <form method="post" action="{{route('estudianteStorage')}}">
 
         @csrf
+
+        <div class="form-group form-registro">
+            <label>Matricula</label>
+            <input type="text" class="form-control  $errors->has('matricula') ? 'error' : '' " name="matricula" id="matricula">
+            
+            <!-- Error -->
+            @if ($errors->has('matricula'))
+            <div class="error">
+                {{$errors->first('matricula')}} 
+            </div>
+            @endif
+        </div>
 
         <div class="form-group form-registro">
             <label>Nombre</label>
@@ -49,36 +64,36 @@
 
         <div class="form-group form-registro">
             <label>Fecha Nacimiento</label>
-            <input type="date" class="form-control  $errors->has('fechaNac') ? 'error' : '' " name="fechaNac" id="fechaNac">
+            <input type="date" class="form-control  $errors->has('fechaNacimiento') ? 'error' : '' " name="fechaNacimiento" id="fechaNacimiento">
             
             <!-- Error -->
-            @if ($errors->has('fechaNac'))
+            @if ($errors->has('fechaNacimiento'))
             <div class="error">
-                {{$errors->first('fechaNac')}} 
+                {{$errors->first('fechaNacimiento')}} 
             </div>
             @endif
         </div>
 
         <div class="form-group form-registro">
-            <label>Correo</label>
-            <input type="email" class="form-control  $errors->has('correo') ? 'error' : '' " name="correo"
+            <label>Email</label>
+            <input type="email" class="form-control  $errors->has('email') ? 'error' : '' " name="email"
                 id="correo">
 
-            @if ($errors->has('correo'))
+            @if ($errors->has('email'))
             <div class="error">
-                {{$errors->first('correo')}}  
+                {{$errors->first('email')}}  
             </div>
             @endif
         </div>
 
         <div class="form-group form-registro">
             <label>Telefono</label>
-            <input type="text" class="form-control  $errors->has('telefono') ? 'error' : '' " name="telefono"
-                id="telefono">
+            <input type="text" class="form-control  $errors->has('celular') ? 'error' : '' " name="celular"
+                id="celular">
 
-            @if ($errors->has('telefono'))
+            @if ($errors->has('celular'))
             <div class="error">
-                {{$errors->first('telefono')}}  
+                {{$errors->first('celular')}}  
             </div>
             @endif
         </div>
@@ -107,16 +122,14 @@
             @endif
         </div>
 
-
-
         <div class="form-group form-registro">
             <label>Codigo Postal</label>
             <input type="text" class="form-control  $errors->has('codigoPostal') ? 'error' : '' " name="codigoPostal" id="codigoPostal">
 
             <!-- Error -->
-            @if ($errors->has('tipoCliente'))
+            @if ($errors->has('codigoPostal'))
             <div class="error">
-                {{$errors->first('tipoCliente')}} 
+                {{$errors->first('codigoPostal')}} 
             </div>
             @endif
         </div>
@@ -126,4 +139,5 @@
         </div>
     </form>
 </div>
-@endsection
+
+</html>

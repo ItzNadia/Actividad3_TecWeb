@@ -16,15 +16,16 @@ return new class extends Migration
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nombre', 50);
-            $table->string('apellidoP', 50);
-            $table->string('apellidoM', 50);
-            $table->string('email', 50);
-            $table->string('calle', 50);
-            $table->string('colonia', 50);
-            $table->string('codigoP', 50);
-            $table->string('celular', 10);
-            $table->date('fechaNacimiento');
+            $table->string('matricula', 50)->nullable();
+            $table->string('nombre', 50)->nullable();
+            $table->string('apellidoP', 50)->nullable();
+            $table->string('apellidoM', 50)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('calle', 50)->nullable();
+            $table->string('colonia', 50)->nullable();
+            $table->string('codigoPostal', 50)->nullable();
+            $table->string('celular', 10)->nullable();
+            $table->date('fechaNacimiento')->nullable();
 
         });
     }

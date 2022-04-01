@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/RegistrarEstudiante', [EstudianteController::class,'vistaRegistrarEstudiante'])->name('estudianteIndex');
+Route::get('/registrarEstudiante', [EstudianteController::class,'vistaRegistrarEstudiante'])->name('estudianteIndex');
 
-Route::post('/RegistrarEstudiante', [EstudianteController::class,'registrarEstudiante'])->name('estudianteStorage');
+Route::post('/registrarEstudiante', [EstudianteController::class,'registrarEstudiante'])->name('estudianteStorage');
 
-Route::get('/MostrarEstudiante', [EstudianteController::class,'mostrarEstudiante'])->name('estudianteList');
+Route::get('/mostrarEstudiante', [EstudianteController::class,'mostrarEstudiante'])->name('estudianteList');

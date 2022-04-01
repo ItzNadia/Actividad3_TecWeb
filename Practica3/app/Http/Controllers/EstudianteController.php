@@ -26,16 +26,21 @@ class EstudianteController extends Controller
             'matricula' => 'required',
             'nombre' => 'required',
             'apellidoP' => 'required',
+            'apellidoM' => '',
             //Estructura tipo date
             'fechaNacimiento' => 'required|date',
             //Estructura de tipo email
             'email' => 'required|email',
             //Aqui se asignan maximos y minimos de datos ingresados
             'celular' => 'required|max:10|min:10',
+            'calle' => '', 
+            'colonia' => '', 
+            'codigoPostal' => ''
         ]);
 
         Estudiante::create($nuevoEstudiante);
         return back()->with('success', 'Su estudiante ha sido creado con exito');
+        //return $nuevoEstudiante;
     }
 
     public function mostrarEstudiante(Request $request){
